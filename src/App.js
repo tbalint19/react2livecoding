@@ -1,4 +1,4 @@
-import './App.css';
+import style from './App.module.css';
 import { useState, useEffect } from 'react'
 import CounterOne from './components/CounterOne'
 
@@ -9,12 +9,16 @@ const App = () => {
 
   const [ filterParam, setFilterParam ] = useState(0)
 
+  const myVar = <p>haho</p>
   const [ myList, setMyList ] = useState([
     { name: "lajos", age: 20 },
     { name: "bela", age: 25 },
     { name: "kazmer", age: 30 },
     { name: "otto", age: 35 },
+    myVar,
+    { name: "huba", age: 35 },
   ])
+
 
   useEffect(() => {
     document.title = x
@@ -22,18 +26,18 @@ const App = () => {
   })
 
   return (
-    <div className="App">
+    <div className={style.App}>
 
       {
         myList
           .filter(person => person.age > filterParam)
-          .map(person => <p>{ person.name }</p>)
+          .map(person => <p key={person.name}>{ person.name }</p>)
       }
 
       <input type="number" onChange={(e) => setFilterParam(e.target.value)}/>
 
       <h1 className="my-heading">My Heading</h1>
-      <p>Lorem</p>
+      <p className={style.someClass}>Lorem</p>
       { x.length < 10 && <h1>Too short!</h1> }
       <p>Lorem</p>
       <p>{ x }</p>

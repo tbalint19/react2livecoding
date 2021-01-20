@@ -2,7 +2,11 @@
   text-align: center;
 }
 
-.my-heading {
+.myHeading {
   color: red;
   text-decoration: underline;
+}
+
+.someClass {
+  color: green;
 }
